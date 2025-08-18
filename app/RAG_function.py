@@ -18,7 +18,6 @@ def get_pdf_paths(dir_name) -> list[str]:
         for f in os.listdir(path_to_folder)
         if f.lower().endswith(".pdf")
     ]
-    print(pdf_paths)
 
     return pdf_paths
 

@@ -18,9 +18,10 @@ jobs:
 
       - name: Set up Python
         uses: actions/setup-python@v5
-        cache: "pip"
+
         with:
           python-version: "3.11"
+          cache: "pip"
 
       - name: Install dependencies
         run: |
