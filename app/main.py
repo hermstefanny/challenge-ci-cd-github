@@ -11,7 +11,7 @@ load_dotenv()
 key_ct = os.environ["OPENAI_API_KEY"]
 client = OpenAI(api_key=key_ct)
 
-pdf_paths = get_pdf_paths("data\\raw-pdfs")
+pdf_paths = get_pdf_paths("data/raw-pdfs")
 
 pdf_names = {}
 for path in pdf_paths:
