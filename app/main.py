@@ -3,12 +3,7 @@ import os
 import re
 from openai import OpenAI
 from dotenv import load_dotenv
-from RAG_function import record_text_extraction, get_pdf_paths, embed_chunks
-from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain.memory import ConversationBufferMemory
-from langchain.chains import LLMChain
-from langchain_openai import ChatOpenAI
-from langchain_community.vectorstores import FAISS
+from RAG_function import get_pdf_paths
 
 
 # Streamlit app

@@ -1,7 +1,5 @@
 import os
-import re
 import fitz
-from openai import OpenAI
 from dotenv import load_dotenv
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
