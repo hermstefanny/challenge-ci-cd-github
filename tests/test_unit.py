@@ -9,4 +9,4 @@ def test_import_pdfs() -> None:
         "C:\\Users\\herms\\Desktop\\BeCode-Bauman\\TheMountain_Projects\\challenge-ci-cd-github\\data\\raw-pdfs\\Acta Sesión Ordinaria  No. 056 2024-04-09.pdf",
     ]
 
-    assert get_pdf_paths("data\\raw-pdfs") == correct_pdf_paths
+    assert get_pdf_paths("data/raw-pdfs") == correct_pdf_paths
