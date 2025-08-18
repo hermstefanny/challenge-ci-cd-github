@@ -18,4 +18,4 @@ def test_import_pdfs() -> None:
         os.path.abspath(os.path.join(complete_folder_path, f)) for f in pdf_names
     ]
 
-    assert get_pdf_paths(partial_folder_path) == correct_pdf_paths
+    assert sorted(get_pdf_paths(partial_folder_path)) == sorted(correct_pdf_paths)
