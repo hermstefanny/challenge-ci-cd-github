@@ -4,6 +4,7 @@ import re
 from openai import OpenAI
 from dotenv import load_dotenv
 from RAG_function import get_pdf_paths
+from bot_function import bot_call
 
 
 load_dotenv()
@@ -54,8 +55,14 @@ current_question = st.text_area(
 
 send_q = st.button("Send", type="primary", use_container_width=True, width="content")
 
+retriever, chat = bot_call(pdf_names[chosen_pdf])
 
 if send_q:
-    answer = st.write(
-        f"You have asked  '{current_question}' about {chosen_pdf} that it's in {pdf_names[chosen_pdf]}"
-    )
+    user_input = current_question
+    results = retriever.invoke(user_input)
+    context = "\n\n".join([doc.page_content for doc in results])
+
+    response = chat.invoke({"input": user_input, "context": context})
+    print("Bot:", response["text"])
+    print("\n")
+    answer = st.write(f"{response['text']}")
