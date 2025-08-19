@@ -27,11 +27,12 @@ As part of the Data Engineering track, a CI/CD exercise is proposed to test the 
 - Add linting before build
 - Using Actions secrets to manage environment variables
 
-**IMPORTANT**:
+---
 
-```
- As the main objective was the CI/CD pipeline build, the chat in the app right now just echoes the question tha the user asks.
-```
+**IMPORTANT**: As the main objective was the CI/CD pipeline build, the chat in the app in **production** (`prod` environment) right now just echoes the question tha the user asks.
+The bot is being implemented in `dev` environment, available in the `dev` branch.
+
+---
 
 ## Requirements and Tools
 
