@@ -1,28 +1,30 @@
 name: cd
 
 on:
-  workflow_dispatch:
+  push:
+    branches: ["dev", "qa", "main"]
 
 jobs:
-  DEV:
+  deploy-DEV:
+    if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
+    environment: dev
 
     steps:
-      - name: Deploy
-        run: echo "Deployed to DEV"
+      - run: echo "Deployed to DEV"
 
-  QA:
+  deploy-QA:
+    if: github.ref == 'refs/heads/qa'
     runs-on: ubuntu-latest
+    environment: qa
 
-    needs: DEV
     steps:
-      - name: Deploy
-        run: echo "Deployed to QA"
+      - run: echo "Deployed to QA"
 
-  PROD:
+  deploy-PROD:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    environment: prod
 
-    needs: QA
     steps:
-      - name: Deploy
-        run: echo "Deployed to Prod"
+      - run: echo "Deployed to Prod"
