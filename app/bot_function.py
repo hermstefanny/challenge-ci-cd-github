@@ -2,7 +2,7 @@ import os
 import re
 from openai import OpenAI
 from dotenv import load_dotenv
-from RAG_function import record_text_extraction, get_pdf_paths, embed_chunks
+from RAG_function import record_text_extraction, embed_chunks
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import LLMChain
