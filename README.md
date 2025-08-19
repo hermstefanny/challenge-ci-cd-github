@@ -25,6 +25,7 @@ As part of the Data Engineering track, a CI/CD exercise is proposed to test the 
 ### Nice-to-Have Features
 
 - Add linting before build
+- Using Actions secrets to manage environment variables
 
 **IMPORTANT**:
 
@@ -92,13 +93,9 @@ Contains the `raw-pdfs` with three example pdfs for RAG exercise
 - Create a virtual environment with and install the dependencies in `requirements.txt`
 - For the streamlit app, run with `streamlit run app/main.py`
 
-## RESULTS & CHALLENGES
+## Results
 
-### Results
-
-#### CI results
-
-##### Deploy to DEV
+### CI results
 
 ![Screenshot of the CI tests](screenshots\CI-results.png "Screenshot of the CI tests")
 
@@ -107,7 +104,9 @@ Contains the `raw-pdfs` with three example pdfs for RAG exercise
 - A branch `testing` was implemented to test the CI with pull requests
 - Several attempts to merge were tried. Errors that prevented sucessful merger in the linting process and in testing were caught and solved
 
-#### CD results
+### CD results
+
+#### Deploy to DEV
 
 ![Screenshot of the CD dev](screenshots\dev-deployment.png "Screenshot of the CD dev")
 
@@ -119,7 +118,7 @@ Contains the `raw-pdfs` with three example pdfs for RAG exercise
 - No manual approval is required, making it fast and iterative.
 - The app shows the appropiate message and background color
 
-##### Deploy to QA
+#### Deploy to QA
 
 ![Screenshot of the CD qa](screenshots\qa-deployment.png "Screenshot of the CD qa")
 
@@ -132,7 +131,7 @@ Contains the `raw-pdfs` with three example pdfs for RAG exercise
 - Deployment happens automatically after the push.
 - The app shows the appropiate message and background color
 
-##### Deploy to PROD
+#### Deploy to PROD
 
 ![Screenshot of the CD prod](screenshots\prod-deployment-1.png "Screenshot of the CD prod")
 
@@ -148,3 +147,17 @@ Contains the `raw-pdfs` with three example pdfs for RAG exercise
 - This step is protected with manual approval.
 - GitHub Actions pauses and waits for a reviewer to approve the release.
 - Once approved, deployment proceeds and final logs confirm success.
+
+### Linting
+
+- Linting is included in the CI workflow using Ruff.
+- It enforces consistent code style and catches common errors automatically.
+
+![Screenshot of CI with linting errors](screenshots\linting-errors.png "Screenshot of CI with linting errors")
+
+### Secrets usage
+
+- Sensitive values are stored in GitHub Secrets and Variables.
+- In this case, OPENAI_API_KEY is kept as a secret and injected into the workflow when needed.
+
+![Screenshot of Actions Variables in Github](screenshots\actions-secrets-var.png "Screenshot of Actions Variables in Github")
