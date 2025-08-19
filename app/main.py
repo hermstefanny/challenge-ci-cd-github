@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 from RAG_function import get_pdf_paths
 
 
-# Streamlit app
 load_dotenv()
 key_ct = os.environ["OPENAI_API_KEY"]
 client = OpenAI(api_key=key_ct)
@@ -20,7 +19,22 @@ for path in pdf_paths:
     pdf_names[pdf_name] = path
 
 
+# Streamlit app
+
+page_bg = """
+<style>
+.stApp {
+background-color : #31cc74;
+}
+div.stButton > button:first-child {
+    background-color: #cc9831;
+}
+</style>
+"""
+st.markdown(page_bg, unsafe_allow_html=True)
 st.title("Bot for TownHall Meetings info")
+
+st.subheader("Dev Environment", divider="rainbow")
 
 
 st.subheader("Choose the doc\n")
