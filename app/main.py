@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 from RAG_function import get_pdf_paths
 
 
-# Streamlit app
 load_dotenv()
 key_ct = os.environ["OPENAI_API_KEY"]
 client = OpenAI(api_key=key_ct)
@@ -19,10 +18,21 @@ for path in pdf_paths:
     pdf_name = match.group(0) if match else ""
     pdf_names[pdf_name] = path
 
-
+# Streamlit app
+page_bg = """
+<style>
+.stApp {
+background-color : #C41E3A;
+}
+div.stButton > button:first-child {
+    background-color: #cc9831;
+}
+</style>
+"""
+st.markdown(page_bg, unsafe_allow_html=True)
 st.title("Bot for TownHall Meetings info")
 
-
+st.subheader("Production Environment", divider="rainbow")
 st.subheader("Choose the doc\n")
 
 chosen_pdf = st.selectbox(
@@ -37,7 +47,7 @@ current_question = st.text_area(
     width="stretch",
 )
 
-st.markdown(["this is the test for ci"])
+
 send_q = st.button("Send", type="primary", use_container_width=True, width="content")
 
 if send_q:
